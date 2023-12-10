@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -32,6 +33,8 @@ public class Weapon : MonoBehaviour
     public bool isReloading;
     #endregion
 
+    public bool isADS;
+
     public enum WeaponModel
     {
         M1911,
@@ -60,6 +63,19 @@ public class Weapon : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            HUDManager.Instance.crossair.SetActive(false);
+            anim.SetTrigger("enterADS");
+            isADS = true;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            HUDManager.Instance.crossair.SetActive(true);
+            anim.SetTrigger("exitADS");
+            isADS = false;
+        }
+
         if (bulletLeft == 0 && isShooting)
         {
             SoundManager.Instance.emptyMagazine.Play();
@@ -85,9 +101,16 @@ public class Weapon : MonoBehaviour
             FireWeapon();
         }
 
-        if (AmmoManager.Instance.ammoDisplay != null)
+        if (HUDManager.Instance.magazineAmmoUI != null)
         {
-            AmmoManager.Instance.ammoDisplay.text = $"{bulletLeft / bulletPerBurst}/{magazineSize / bulletPerBurst}";
+            HUDManager hudManager = HUDManager.Instance;
+
+            hudManager.magazineAmmoUI.text = $"{bulletLeft / bulletPerBurst}";
+            hudManager.totalAmmoUI.text = $"{magazineSize / bulletPerBurst}";
+
+            WeaponModel model = thisWeaponModel;
+
+            hudManager.activeWeaponUI.sprite = GetWeaponSprite(model);
         }
     }
 
@@ -96,7 +119,14 @@ public class Weapon : MonoBehaviour
         bulletLeft--;
 
         muzzleEffect.GetComponent<ParticleSystem>().Play();
-        anim.SetTrigger("RECOIL");
+        if (isADS)
+        {
+            anim.SetTrigger("adsRECOIL");
+        }
+        else
+        {
+            anim.SetTrigger("RECOIL");
+        }
 
         SoundManager.Instance.PlayShootingSound(thisWeaponModel);
 
@@ -164,16 +194,37 @@ public class Weapon : MonoBehaviour
 
         Vector3 direction = targetPoint - bulletSpawn.position;
 
-        float x = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
+        float Z = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
         float y = UnityEngine.Random.Range(-spreadIntensity, spreadIntensity);
 
 
-        return direction + new Vector3(x, y, 0);
+        return direction + new Vector3(0, y, Z);
     }
 
     private IEnumerator DestroyBullet(GameObject bullet, float delay)
     {
         yield return new WaitForSeconds(delay);
         Destroy(bullet);
+    }
+
+    private Sprite GetWeaponSprite(WeaponModel model)
+    {
+        switch (model)
+        {
+            case WeaponModel.M1911:
+                return Instantiate(Resources.Load<GameObject>("M1911_Weapon")).GetComponent<SpriteRenderer>().sprite;
+
+            case WeaponModel.M4:
+                return Instantiate(Resources.Load<GameObject>("M4_Weapon")).GetComponent<SpriteRenderer>().sprite;
+
+            case WeaponModel.AK47:
+                return Instantiate(Resources.Load<GameObject>("AK47_Weapon")).GetComponent<SpriteRenderer>().sprite;
+
+            case WeaponModel.Bennelli:
+                return Instantiate(Resources.Load<GameObject>("Benneli_Weapon")).GetComponent<SpriteRenderer>().sprite;
+
+            default:
+                return null;
+        }
     }
 }
