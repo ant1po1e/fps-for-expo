@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10128,7 +10128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2378158150208001580, guid: 36180d2cdc5b0b88a8cf53037ff9f6c5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5020466539896259534, guid: 36180d2cdc5b0b88a8cf53037ff9f6c5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10182,6 +10182,14 @@ PrefabInstance:
       propertyPath: muzzleEffect
       value: 
       objectReference: {fileID: 1934784615}
+    - target: {fileID: 9128199358189136244, guid: 36180d2cdc5b0b88a8cf53037ff9f6c5, type: 3}
+      propertyPath: adsSpreadIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9128199358189136244, guid: 36180d2cdc5b0b88a8cf53037ff9f6c5, type: 3}
+      propertyPath: hipSpreadIntensity
+      value: 1.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
