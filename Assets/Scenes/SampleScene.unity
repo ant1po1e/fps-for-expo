@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657832, g: 0.49641222, b: 0.57481664, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4720,7 +4720,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ed30d66d62d61a76bde8aef4db839de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeWeapon: 0
   m1911Mode: {fileID: 954188978}
   m4Model: {fileID: 684087167380256007}
   ak47Model: {fileID: 7722255282122292893}
@@ -4953,7 +4952,7 @@ Transform:
   m_GameObject: {fileID: 1516835781}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.12, z: 0}
+  m_LocalPosition: {x: -6.65, y: 2.12, z: 7.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9884,11 +9883,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2002237472096028585, guid: d49f67cef0006764e959257608a35660, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4471994249772011107, guid: d49f67cef0006764e959257608a35660, type: 3}
       propertyPath: reloadTime
       value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471994249772011107, guid: d49f67cef0006764e959257608a35660, type: 3}
+      propertyPath: bulletPerBurst
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471994249772011107, guid: d49f67cef0006764e959257608a35660, type: 3}
+      propertyPath: adsSpreadIntensity
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4471994249772011107, guid: d49f67cef0006764e959257608a35660, type: 3}
+      propertyPath: hipSpreadIntensity
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7555478789319364841, guid: d49f67cef0006764e959257608a35660, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9972,6 +9983,14 @@ PrefabInstance:
     - target: {fileID: 5065498325971640695, guid: cb9610c8cce8fc101ab0001680158606, type: 3}
       propertyPath: shootingDelay
       value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065498325971640695, guid: cb9610c8cce8fc101ab0001680158606, type: 3}
+      propertyPath: adsSpreadIntensity
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065498325971640695, guid: cb9610c8cce8fc101ab0001680158606, type: 3}
+      propertyPath: hipSpreadIntensity
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7580716173074402186, guid: cb9610c8cce8fc101ab0001680158606, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10073,6 +10092,14 @@ PrefabInstance:
     - target: {fileID: 1068509041637515030, guid: f70c66e84ebea7c989d0f8e778635504, type: 3}
       propertyPath: shootingDelay
       value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068509041637515030, guid: f70c66e84ebea7c989d0f8e778635504, type: 3}
+      propertyPath: adsSpreadIntensity
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068509041637515030, guid: f70c66e84ebea7c989d0f8e778635504, type: 3}
+      propertyPath: hipSpreadIntensity
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8806219409136401665, guid: f70c66e84ebea7c989d0f8e778635504, type: 3}
       propertyPath: m_Name

@@ -6,32 +6,32 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    #region Shooting Variables
+    [Header("Shooting")]
     public bool isShooting, readyToShoot;
     bool allowReset = true;
     public float shootingDelay = 2f;
-    #endregion
 
+    [Header("Bullet Burst")]
     public int bulletPerBurst = 3;
     public int burstBulletLeft;
 
-    public float spreadIntensity;
+    [Header("Spread Intensity")]
+    public float hipSpreadIntensity;
+    public float adsSpreadIntensity;
+    private float spreadIntensity;
 
-    #region Bullet Variables
+    [Header("Bullet")]
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30f;
     public float bulletPrefabLifeTime = 3f;
-    #endregion
 
+    [Header("Reloading")]
     public GameObject muzzleEffect;
     private Animator anim;
-
-    #region Reload Variables
     public float reloadTime;
     public int magazineSize, bulletLeft;
     public bool isReloading;
-    #endregion
 
     public bool isADS;
 
@@ -59,6 +59,7 @@ public class Weapon : MonoBehaviour
         anim = GetComponent<Animator>();
 
         bulletLeft = magazineSize;
+        spreadIntensity = hipSpreadIntensity;
     }
 
     void Update()
@@ -68,12 +69,14 @@ public class Weapon : MonoBehaviour
             HUDManager.Instance.crossair.SetActive(false);
             anim.SetTrigger("enterADS");
             isADS = true;
+            spreadIntensity = adsSpreadIntensity;
         }
         if (Input.GetMouseButtonUp(1))
         {
             HUDManager.Instance.crossair.SetActive(true);
             anim.SetTrigger("exitADS");
             isADS = false;
+            spreadIntensity = hipSpreadIntensity;
         }
 
         if (bulletLeft == 0 && isShooting)
