@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Target
   - Wall
-  - Bottle
+  - Bottle10
+  - Bottle20
+  - Bottle30
+  - Bottle40
+  - Bottle50
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - Water
   - UI
   - WeaponRender
-  - 
+  - Interactable
   - 
   - 
   - 
