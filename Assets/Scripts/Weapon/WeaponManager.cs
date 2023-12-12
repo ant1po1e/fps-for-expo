@@ -20,14 +20,14 @@ public class WeaponManager : MonoBehaviour
     }
     #endregion
 
-    public GameObject m1911Mode;
+    public GameObject m1911Model;
     public GameObject m4Model;
     public GameObject ak47Model;
     public GameObject bennelliModel;
 
     private void Start()
     {
-        m1911Mode.SetActive(false);
+        m1911Model.SetActive(false);
         m4Model.SetActive(false);
         ak47Model.SetActive(false);
         bennelliModel.SetActive(false);
@@ -37,7 +37,7 @@ public class WeaponManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            m1911Mode.SetActive(true);
+            m1911Model.SetActive(true);
             m4Model.SetActive(false);
             ak47Model.SetActive(false);
             bennelliModel.SetActive(false);
@@ -45,7 +45,7 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            m1911Mode.SetActive(false);
+            m1911Model.SetActive(false);
             m4Model.SetActive(true);
             ak47Model.SetActive(false);
             bennelliModel.SetActive(false);
@@ -53,7 +53,7 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            m1911Mode.SetActive(false);
+            m1911Model.SetActive(false);
             m4Model.SetActive(false);
             ak47Model.SetActive(true);
             bennelliModel.SetActive(false);
@@ -61,7 +61,7 @@ public class WeaponManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            m1911Mode.SetActive(false);
+            m1911Model.SetActive(false);
             m4Model.SetActive(false);
             ak47Model.SetActive(false);
             bennelliModel.SetActive(true);
